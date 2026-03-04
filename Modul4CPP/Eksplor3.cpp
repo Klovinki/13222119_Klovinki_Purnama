@@ -3,7 +3,7 @@
 
 int main() {  
     std::vector<int> data = {10, 20, 30, 40};  
-
+    
     // Simulasi: Jika 4 Core berebut mengubah variabel 'total' bersamaan 
     // g++ -fopenmp Eksplor3.cpp -o Race.cpp
     #pragma omp parallel for
@@ -11,7 +11,6 @@ int main() {
         int total = 0; // <-- TARGET BENTROKAN (DATA RACE)
         
         total = total + data[i];   
-        std::cout << "Total Akumulasi: " << total << std::endl;
     }
 
     std::cout << "Total Akumulasi: " << total << std::endl;  
